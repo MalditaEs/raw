@@ -137,8 +137,12 @@ export default class RawTool {
    * @public
    */
   save(rawToolsWrapper) {
+
+    let htmlCode = rawToolsWrapper.querySelector('textarea').value;
+    let sanitizedHtmlCode = htmlCode.replaceAll('</script>', '<\\/script>');
+
     return {
-      html: rawToolsWrapper.querySelector('textarea').value,
+      html: sanitizedHtmlCode,
     };
   }
 
